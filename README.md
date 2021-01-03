@@ -64,7 +64,7 @@ If you want to make local modifications to these images for development purposes
 
 ```
 git clone git://github.com/skywirex/docker-hnsd.git
-cd hnsd
+cd docker-hnsd
 VERSION=$(git ls-remote --tags --refs --sort="v:refname" git://github.com/handshake-org/hnsd.git | tail -n1 | sed 's/.*\///')
 ARCH=$(arch)
 docker build --no-cache --pull -t skywirex/hnsd:$VERSION-$ARCH .
