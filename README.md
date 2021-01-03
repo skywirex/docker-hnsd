@@ -63,7 +63,7 @@ The example below for updating `hnsd` container
 If you want to make local modifications to these images for development purposes or just to customize the logic:
 
 ```
-git clone git:github.com/skywirex/docker-hnsd.git
+git clone git://github.com/skywirex/docker-hnsd.git
 cd hnsd
 VERSION=$(git ls-remote --tags --refs --sort="v:refname" git://github.com/handshake-org/hnsd.git | tail -n1 | sed 's/.*\///')
 ARCH=$(arch)
