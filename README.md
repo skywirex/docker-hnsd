@@ -24,10 +24,10 @@ docker create \
   --net=host \
   --restart=unless-stopped \
   -it \
-skywirex/hnsd:<tag> -r 10.0.0.18:53
+skywirex/hnsd:<tag> -r 10.0.0.10:53
 ```
 
-Replace 10.0.0.10 with your IP using `ifconfig` command
+Replace `10.0.0.10` with your IP using `ifconfig` command
 
 - Step 2: Run hnsd in Docker container
 
