@@ -16,7 +16,13 @@ Check your port 53 free before using the below command.
 
 Here are some example snippets to help you get started creating a container.
 
-- Step 1: Create hnsd container (replace `<tag>` with appropriate tag above.)
+- Step 1: Get your local IP
+
+```
+IP=$(ifconfig eth0 | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+```
+
+- Step 2: Create hnsd container (replace `<tag>` with appropriate tag above)
 
 ```
 docker create \
@@ -24,18 +30,16 @@ docker create \
   --net=host \
   --restart=unless-stopped \
   -it \
-skywirex/hnsd:<tag> -r 10.0.0.10:53
+skywirex/hnsd:<tag> -r $IP:53
 ```
 
-Replace `10.0.0.10` with your IP using `ifconfig` command
-
-- Step 2: Run hnsd in Docker container
+- Step 3: Run hnsd in Docker container
 
 ```
 docker start hnsd
 ```
 
-- Step 3: Check the hnsd container if it run correctly
+- Step 4: Check the hnsd container if it run correctly
 
 ```
 docker ps -a
